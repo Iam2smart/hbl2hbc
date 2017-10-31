@@ -332,54 +332,54 @@ static unsigned int wpadToVpad(unsigned int buttons)
 	return conv_buttons;
 }
 
-static unsigned int wpadClassicToVpad(unsigned int buttons)
+static unsigned int VpadTowpadClassic(unsigned int buttons)
 {
 	unsigned int conv_buttons = 0;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_LEFT)
-		conv_buttons |= VPAD_BUTTON_LEFT;
+	if(buttons & VPAD_BUTTON_LEFT)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_LEFT;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_RIGHT)
-		conv_buttons |= VPAD_BUTTON_RIGHT;
+	if(buttons & VPAD_BUTTON_RIGHT)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_RIGHT;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_DOWN)
-		conv_buttons |= VPAD_BUTTON_DOWN;
+	if(buttons & VPAD_BUTTON_DOWN)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_DOWN;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_UP)
-		conv_buttons |= VPAD_BUTTON_UP;
+	if(buttons & VPAD_BUTTON_UP)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_UP;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_PLUS)
-		conv_buttons |= VPAD_BUTTON_PLUS;
+	if(buttons & VPAD_BUTTON_PLUS)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_PLUS;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_X)
-		conv_buttons |= VPAD_BUTTON_X;
+	if(buttons & VPAD_BUTTON_X)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_X;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_Y)
-		conv_buttons |= VPAD_BUTTON_Y;
+	if(buttons & VPAD_CLASSIC_BUTTON_Y)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_Y;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_B)
-		conv_buttons |= VPAD_BUTTON_B;
+	if(buttons & VPAD_BUTTON_B)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_B;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_A)
-		conv_buttons |= VPAD_BUTTON_A;
+	if(buttons & VPAD_BUTTON_A)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_A;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_MINUS)
-		conv_buttons |= VPAD_BUTTON_MINUS;
+	if(buttons & VPAD_BUTTON_MINUS)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_MINUS;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_HOME)
-		conv_buttons |= VPAD_BUTTON_HOME;
+	if(buttons & VPAD_BUTTON_HOME)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_HOME;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_ZR)
-		conv_buttons |= VPAD_BUTTON_ZR;
+	if(buttons & VPAD_BUTTON_ZR)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_ZR;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_ZL)
-		conv_buttons |= VPAD_BUTTON_ZL;
+	if(buttons & VPAD_BUTTON_ZL)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_ZL;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_R)
-		conv_buttons |= VPAD_BUTTON_R;
+	if(buttons & VPAD_BUTTON_R)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_R;
 
-	if(buttons & WPAD_CLASSIC_BUTTON_L)
-		conv_buttons |= VPAD_BUTTON_L;
+	if(buttons & VPAD_BUTTON_L)
+		conv_buttons |= WPAD_CLASSIC_BUTTON_L;
 
 	return conv_buttons;
 }
@@ -405,7 +405,7 @@ static unsigned int getButtonsDown()
 		if(kpadData.device_type <= 1)
 			btnDown |= wpadToVpad(kpadData.btns_d);
 		else
-			btnDown |= wpadClassicToVpad(kpadData.classic.btns_d);
+			btnDown |= VpadTowpadClassic(kpadData.btns_d);
 	}
 
 	return btnDown;
